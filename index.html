@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budgie</title>
+
+  <style>
+    :root {
+      --blue: #0b6fb3;
+      --deep-blue: #071b48;
+      --cyan: #75d3df;
+      --soft-cyan: #d8f4f7;
+      --mint: #9adbd3;
+      --orange: #f05a28;
+      --black: #080808;
+      --dark: #111827;
+      --gray: #6b7280;
+      --light-gray: #f5f8fa;
+      --white: #ffffff;
+      --radius-lg: 32px;
+      --radius-md: 22px;
+      --radius-sm: 14px;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.65;
+    }
+
+    img,
+    video {
+      width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 96px 28px;
+    }
+
+    .eyebrow {
+      color: var(--blue);
+      font-size: 14px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      color: var(--blue);
+      font-size: clamp(38px, 6vw, 72px);
+      line-height: 0.95;
+      font-weight: 950;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .section-title.dark {
+      color: var(--dark);
+    }
+
+    .section-title.white {
+      color: var(--white);
+    }
+
+    .section-lead {
+      max-width: 860px;
+      color: var(--gray);
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .text-block {
+      max-width: 940px;
+    }
+
+    .text-block p {
+      font-size: 18px;
+      color: #26313f;
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 88vh;
+      background:
+        radial-gradient(circle at 70% 20%, rgba(117, 211, 223, 0.95), transparent 26%),
+        radial-gradient(circle at 52% 54%, rgba(240, 90, 40, 0.78), transparent 24%),
+        radial-gradient(circle at 22% 72%, rgba(80, 40, 130, 0.72), transparent 28%),
+        linear-gradient(135deg, #061631 0%, #0c4e7a 45%, #a8ded7 100%);
+      color: white;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 80px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, transparent, black 30%, transparent);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 940px;
+    }
+
+    .hero-logo {
+      width: 340px;
+      max-width: 82%;
+      margin: 0 auto 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(44px, 8vw, 96px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin-bottom: 22px;
+      font-weight: 950;
+    }
+
+    .hero p {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: clamp(18px, 2vw, 24px);
+      opacity: 0.92;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-weight: 800;
+      font-size: 15px;
+      transition: 0.25s ease;
+    }
+
+    .btn.primary {
+      background: var(--white);
+      color: var(--blue);
+    }
+
+    .btn.secondary {
+      border: 1px solid rgba(255,255,255,0.45);
+      color: var(--white);
+      backdrop-filter: blur(12px);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* APP STATEMENT */
+
+    .statement-section {
+      background: var(--black);
+      color: white;
+    }
+
+    .statement-card {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(117, 211, 223, 0.22), transparent 28%),
+        radial-gradient(circle at 80% 60%, rgba(240, 90, 40, 0.18), transparent 24%),
+        #101010;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: clamp(32px, 6vw, 72px);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+    }
+
+    .statement-card p {
+      font-size: clamp(28px, 4vw, 50px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      font-weight: 850;
+      max-width: 1000px;
+    }
+
+    /* INTRO */
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .intro-visual {
+      background: var(--light-gray);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      min-height: 360px;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-visual img {
+      max-width: 280px;
+      object-fit: contain;
+    }
+
+    /* PROBLEM */
+
+    .problem-section {
+      background: linear-gradient(180deg, #ffffff 0%, #f3fbfc 100%);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 38px;
+      margin-top: 42px;
+    }
+
+    .problem-card {
+      background: white;
+      border: 1px solid #e5eef2;
+      border-radius: var(--radius-md);
+      padding: 34px;
+      box-shadow: 0 20px 50px rgba(8, 17, 24, 0.07);
+    }
+
+    .problem-card h3 {
+      color: var(--blue);
+      font-size: 24px;
+      margin-bottom: 16px;
+    }
+
+    .problem-card p {
+      color: #26313f;
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    /* ABOUT + FEATURES */
+
+    .about-header {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 46px;
+      align-items: start;
+    }
+
+    .core-card {
+      background: var(--soft-cyan);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .core-card h3 {
+      font-size: 24px;
+      color: var(--blue);
+      margin-bottom: 14px;
+    }
+
+    .core-card p {
+      font-size: 22px;
+      line-height: 1.45;
+      font-weight: 750;
+      color: #0b2538;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 54px;
+    }
+
+    .feature-card {
+      min-height: 410px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: 0.25s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .feature-card h3 {
+      font-size: 20px;
+      line-height: 1.15;
+      margin-bottom: 16px;
+      color: var(--dark);
+      font-weight: 900;
+    }
+
+    .feature-card img {
+      height: 500px;
+    }
+
+    .feature-card p {
+      color: var(--blue);
+      font-size: 15px;
+      font-weight: 800;
+      margin-top: auto;
+    }
+
+    /* VALUE PROPOSITION */
+
+    .value-section {
+      background: var(--deep-blue);
+      color: white;
+    }
+
+    .value-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .value-copy p {
+      font-size: 19px;
+      color: rgba(255,255,255,0.86);
+      margin-bottom: 18px;
+    }
+
+    .value-list {
+      display: grid;
+      gap: 16px;
+    }
+
+    .value-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      padding: 20px 22px;
+      backdrop-filter: blur(14px);
+    }
+
+    .value-item strong {
+      display: block;
+      color: white;
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .value-item span {
+      color: rgba(255,255,255,0.75);
+      font-size: 15px;
+    }
+
+    .one-line {
+      margin-top: 42px;
+      background: white;
+      color: var(--deep-blue);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      font-size: clamp(24px, 3vw, 38px);
+      line-height: 1.2;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    /* PROCESS */
+
+    .process-list {
+      margin-top: 48px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .process-item {
+      display: grid;
+      grid-template-columns: 80px 260px 1fr;
+      gap: 24px;
+      align-items: start;
+      padding: 28px;
+      background: white;
+      border: 1px solid #e7edf2;
+      border-radius: var(--radius-md);
+      box-shadow: 0 18px 45px rgba(8, 17, 24, 0.05);
+    }
+
+    .process-number {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .process-item h3 {
+      color: var(--dark);
+      font-size: 21px;
+      font-weight: 900;
+    }
+
+    .process-item p {
+      color: var(--gray);
+      font-size: 17px;
+    }
+
+    /* RESEARCH REDESIGN */
+
+    .research-section {
+      background: #f7fbfc;
+    }
+
+    .research-layout {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 42px;
+      align-items: start;
+      margin-top: 46px;
+    }
+
+    .research-summary {
+      background: var(--dark);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      position: sticky;
+      top: 24px;
+    }
+
+    .research-summary h3 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .research-summary p {
+      color: rgba(255,255,255,0.78);
+      font-size: 17px;
+    }
+
+    .research-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .stat-card {
+      background: white;
+      border-radius: var(--radius-md);
+      padding: 28px;
+      border: 1px solid #e3edf1;
+      min-height: 210px;
+      box-shadow: 0 20px 45px rgba(8, 17, 24, 0.06);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: rgba(117, 211, 223, 0.18);
+      right: -35px;
+      bottom: -35px;
+    }
+
+    .stat-card strong {
+      color: var(--blue);
+      font-size: clamp(42px, 6vw, 66px);
+      line-height: 1;
+      font-weight: 950;
+      display: block;
+      margin-bottom: 14px;
+      letter-spacing: -2px;
+    }
+
+    .stat-card span {
+      color: #26313f;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .research-footer {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .mini-insight {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: white;
+      border-radius: var(--radius-md);
+      padding: 26px;
+    }
+
+    .mini-insight strong {
+      font-size: 44px;
+      line-height: 1;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .mini-insight p {
+      font-size: 16px;
+      opacity: 0.9;
+    }
+
+    /* STYLE GUIDE */
+
+    .style-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 46px;
+    }
+
+    .guide-card {
+      background: white;
+      border: 1px solid #e5edf1;
+      border-radius: var(--radius-md);
+      padding: 30px;
+      box-shadow: 0 20px 50px rgba(8, 17, 24, 0.05);
+    }
+
+    .guide-card h3 {
+      color: var(--blue);
+      font-size: 24px;
+      margin-bottom: 14px;
+    }
+
+    .guide-card p {
+      color: var(--gray);
+      font-size: 17px;
+      margin-bottom: 14px;
+    }
+
+    .palette {
+      display: flex;
+      height: 48px;
+      border-radius: 999px;
+      overflow: hidden;
+      border: 1px solid #d5dee5;
+      margin-top: 18px;
+    }
+
+    .swatch {
+      flex: 1;
+    }
+
+    .c1 { background: #071b48; }
+    .c2 { background: #0b6fb3; }
+    .c3 { background: #50b8ce; }
+    .c4 { background: #a8ded7; }
+    .c5 { background: #d8f4f7; }
+    .c6 { background: #f05a28; }
+
+    .n1 { background: #000000; }
+    .n2 { background: #444444; }
+    .n3 { background: #999999; }
+    .n4 { background: #d9d9d9; }
+    .n5 { background: #ffffff; }
+
+    .wide-card {
+      grid-column: 1 / -1;
+    }
+
+    .guide-image {
+      max-width: 720px;
+      margin-top: 20px;
+      border-radius: var(--radius-sm);
+    }
+
+    .bird-images {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+      align-items: center;
+      margin-top: 22px;
+    }
+
+    .bird-images img {
+      object-fit: contain;
+      max-height: 100px;
+    }
+
+    /* VIDEO SECTION */
+
+    .video-section {
+      background: var(--black);
+      color: white;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .video-frame {
+      background:
+        linear-gradient(135deg, rgba(117,211,223,0.18), rgba(240,90,40,0.16)),
+        #151515;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.35);
+    }
+
+    .video-frame video {
+      border-radius: 22px;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      background: #000;
+    }
+
+    .video-placeholder {
+      aspect-ratio: 16 / 9;
+      border-radius: 22px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(117,211,223,0.35), transparent 24%),
+        radial-gradient(circle at 70% 60%, rgba(240,90,40,0.32), transparent 22%),
+        #050505;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      color: rgba(255,255,255,0.7);
+      font-weight: 800;
+      border: 1px dashed rgba(255,255,255,0.22);
+    }
+
+    /* TASK FLOW */
+
+    .task-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 56px;
+      align-items: center;
+      margin-top: 44px;
+    }
+
+    .flow-list {
+      display: grid;
+      gap: 14px;
+      position: relative;
+    }
+
+    .flow-item {
+      background: var(--soft-cyan);
+      border: 1px solid #c7ebf0;
+      padding: 16px 20px;
+      font-weight: 850;
+      border-radius: 999px;
+      color: #0b2538;
+      box-shadow: 0 14px 30px rgba(8,17,24,0.05);
+    }
+
+    .task-image {
+      max-width: 440px;
+      margin: 0 auto;
+      object-fit: contain;
+    }
+
+    /* INTERFACES */
+
+    .interfaces-section {
+      background: #f7fbfc;
+    }
+
+    .interfaces-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+      align-items: start;
+    }
+
+    .interfaces-grid img {
+      border-radius: 14px;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.14);
+      object-fit: cover;
+      transition: 0.25s ease;
+    }
+
+    .interfaces-grid img:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 22px 50px rgba(0,0,0,0.2);
+    }
+
+    /* WIDGETS */
+
+    .widgets-row {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1.3fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 40px;
+    }
+
+    .widgets-row img {
+      border-radius: 24px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.12);
+    }
+
+    /* TEAM */
+
+    .team-section {
+      background: var(--black);
+      color: white;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 22px;
+      margin-top: 50px;
+    }
+
+    .team-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 24px 18px;
+      text-align: center;
+      transition: 0.25s ease;
+    }
+
+    .team-card:hover {
+      transform: translateY(-8px);
+      background: rgba(117,211,223,0.12);
+      border-color: rgba(117,211,223,0.45);
+    }
+
+    .team-card img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 18px;
+      background: var(--cyan);
+    }
+
+    .team-card h3 {
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .team-card p {
+      color: rgba(255,255,255,0.65);
+      font-size: 15px;
+      line-height: 1.35;
+      margin-bottom: 16px;
+    }
+
+    .linkedin-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: white;
+      color: var(--blue);
+      font-weight: 850;
+      font-size: 13px;
+    }
+
+    /* MOCKUP */
+
+    .mockup-section {
+      background:
+        radial-gradient(circle at 25% 28%, rgba(117, 211, 223, 0.9), transparent 28%),
+        radial-gradient(circle at 66% 24%, rgba(240, 90, 40, 0.85), transparent 25%),
+        radial-gradient(circle at 82% 72%, rgba(80, 40, 130, 0.8), transparent 32%),
+        linear-gradient(135deg, #9adbd3 0%, #183f81 55%, #111 100%);
+    }
+
+    .mockup-image {
+      max-width: 1000px;
+      margin: 48px auto 0;
+      object-fit: contain;
+      filter: drop-shadow(0 30px 60px rgba(0,0,0,0.35));
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 1100px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .interfaces-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .intro-grid,
+      .problem-grid,
+      .about-header,
+      .value-grid,
+      .research-layout,
+      .video-grid,
+      .task-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .core-card,
+      .research-summary {
+        position: static;
+      }
+
+      .process-item {
+        grid-template-columns: 1fr;
+      }
+
+      .style-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .widgets-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 68px 20px;
+      }
+
+      .hero {
+        min-height: 78vh;
+      }
+
+      .hero-logo {
+        width: 250px;
+      }
+
+      .features-grid,
+      .research-stats,
+      .research-footer,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .interfaces-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .bird-images {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .statement-card {
+        border-radius: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-content">
+        <img class="hero-logo" src="images/budgie-logo.png" alt="Budgie logo">
+
+        <h1>Budget smarter before you spend.</h1>
+
+        <p>
+          Budgie helps users understand daily spending, track transactions automatically,
+          and make better purchase decisions in real time.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#video">Watch Promo</a>
+          <a class="btn secondary" href="#features">Explore Features</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- APP STATEMENT -->
+    <section class="statement-section">
+      <div class="container">
+        <p class="eyebrow">App Statement</p>
+
+        <div class="statement-card">
+          <p>
+            An app that helps adult users with irregular spending maintain financial stability
+            and consistency by categorizing income, tracking daily transactions, and providing
+            real-time affordability insights.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION -->
+    <section>
+      <div class="container">
+        <div class="intro-grid">
+          <div>
+            <p class="eyebrow">Introduction</p>
+            <h2 class="section-title">Meet Budgie</h2>
+
+            <div class="text-block">
+              <p>
+                Managing money is not always difficult because people do not care.
+                It is often difficult because tracking expenses takes effort, spending decisions
+                happen quickly, and many users only notice overspending after the money is already gone.
+              </p>
+
+              <p>
+                Budgie was created to support adults in Saudi Arabia who want better financial stability
+                but struggle with consistency, impulsive spending, and manual budgeting.
+              </p>
+
+              <p>
+                The goal is to create a simple, low-effort budgeting experience that helps users feel
+                more aware, confident, and in control of their daily spending.
+              </p>
+            </div>
+          </div>
+
+          <div class="intro-visual">
+            <img src="images/box-bird.png" alt="Budgie bird box illustration">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="problem-section">
+      <div class="container">
+        <p class="eyebrow">Problem / Opportunity</p>
+        <h2 class="section-title">Budgeting fails at the moment of spending.</h2>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <h3>The problem</h3>
+
+            <p>
+              People do not fail at budgeting because they lack financial knowledge.
+              They fail because daily spending is fast, invisible, and often influenced by habits,
+              emotions, and social pressure.
+            </p>
+          </div>
+
+          <div class="problem-card">
+            <h3>The opportunity</h3>
+
+            <p>
+              Most financial apps help users pay, save, track, or analyze their money,
+              but they do not support users at the moment when spending decisions happen.
+            </p>
+
+            <p>
+              This creates an opportunity for Budgie to help users build consistent financial behavior
+              through automated expense tracking, customizable daily budgets, and real-time purchase feedback.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT + FEATURES -->
+    <section id="features">
+      <div class="container">
+        <div class="about-header">
+          <div>
+            <p class="eyebrow">About Budgie</p>
+            <h2 class="section-title">A finance app that supports behavior.</h2>
+          </div>
+
+          <div class="text-block">
+            <p>
+              Budgie is a smart budgeting app designed to help users track expenses,
+              organize spending, and understand the impact of their purchases in real time.
+            </p>
+
+            <p>
+              The app reduces the friction of manual expense tracking by automatically recording
+              and categorizing spending. It gives users clear insights into where their money goes,
+              alerts them when they are close to budget limits, and helps them pause before making
+              unnecessary purchases.
+            </p>
+          </div>
+        </div>
+
+        <div class="core-card" style="margin-top: 46px;">
+          <h3>Core idea</h3>
+          <p>
+            A low-effort budgeting app that helps users stay consistent, understand their spending,
+            and make smarter purchase decisions before they pay.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <img src="images/feature-categorize.png" alt="Categorize your budget screen">
+          </article>
+
+          <article class="feature-card">
+            <img src="images/feature-tracking.png" alt="Automated payment tracking screen">
+          </article>
+
+          <article class="feature-card">
+            <img src="images/feature-performance.png" alt="Performance details screen">
+          </article>
+
+          <article class="feature-card">
+            <img src="images/feature-widget.png" alt="Budgie widget preview">
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUE PROPOSITION -->
+    <section class="value-section">
+      <div class="container">
+        <div class="value-grid">
+          <div>
+            <p class="eyebrow">Value Proposition</p>
+            <h2 class="section-title white">Daily financial control, without the effort.</h2>
+          </div>
+
+          <div class="value-copy">
+            <p>
+              Budgie helps users stay in control of their daily spending by turning budgeting
+              into an automated, real-time, and effortless experience.
+            </p>
+
+            <p>
+              Unlike traditional financial apps that only show users what they spent after the fact,
+              Budgie helps users make smarter decisions before overspending happens.
+            </p>
+
+            <div class="value-list">
+              <div class="value-item">
+                <strong>Automated tracking</strong>
+                <span>Through iOS Shortcuts and SMS notifications.</span>
+              </div>
+
+              <div class="value-item">
+                <strong>Customizable budgets</strong>
+                <span>Across different cards and spending categories.</span>
+              </div>
+
+              <div class="value-item">
+                <strong>Daily budget focus</strong>
+                <span>Makes money management easier and more realistic.</span>
+              </div>
+
+
+              <div class="value-item">
+                <strong>Easy widget access</strong>
+                <span>Lets users check their budget quickly without opening the app.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="one-line">
+          Budgie gives users daily financial control by combining automated tracking,
+          customizable budgets, and real-time spending guidance in one simple app.
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section>
+      <div class="container">
+        <p class="eyebrow">Our Process</p>
+        <h2 class="section-title">From behavior problem to product solution.</h2>
+
+        <div class="process-list">
+          <div class="process-item">
+            <div class="process-number">01</div>
+            <h3>Understanding the Problem</h3>
+            <p>
+              We explored why budgeting is challenging for many. The main issues include lack of awareness,
+              consistency, discipline, and supportive systems for better spending.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">02</div>
+            <h3>Research & Insights</h3>
+            <p>
+              Our research revealed that expense management is primarily a behavioral issue.
+              Users need support before they spend, not just afterward.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">03</div>
+            <h3>Defining the Opportunity</h3>
+            <p>
+              Saudi Arabia’s growing fintech sector and rising digital payment habits created an opportunity
+              for a localized budgeting app that fits daily financial behavior.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">04</div>
+            <h3>Designing the Solution</h3>
+            <p>
+              We designed Budgie to be visual, simple, and easy to use. The app shows income,
+              spending, remaining balance, categories, and insights clearly.
+            </p>
+          </div>
+
+          <div class="process-item">
+            <div class="process-number">05</div>
+            <h3>Supporting Better Habits</h3>
+            <p>
+              Budgie keeps users informed through alerts, spending insights, and guidance on purchase impact
+              without making users feel judged or overwhelmed.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="research-section">
+      <div class="container">
+        <p class="eyebrow">Research</p>
+        <h2 class="section-title">The data showed a consistency problem.</h2>
+
+        <p class="section-lead">
+          We engaged a diverse group of 114 participants to understand how people manage budgets,
+          track spending, and experience loss of control with daily expenses.
+        </p>
+
+        <div class="research-layout">
+          <div class="research-summary">
+            <h3>Key insight</h3>
+            <p>
+              Users are not missing awareness only. They are missing a system that helps them act
+              at the right time, especially before small daily purchases turn into overspending.
+            </p>
+          </div>
+
+          <div>
+            <div class="research-stats">
+              <div class="stat-card">
+                <strong>62.3%</strong>
+                <span>have a budget but do not stick to it.</span>
+              </div>
+
+              <div class="stat-card">
+                <strong>90.4%</strong>
+                <span>realize overspending by the end of the week.</span>
+              </div>
+
+              <div class="stat-card">
+                <strong>52.6%</strong>
+                <span>track expenses mentally.</span>
+              </div>
+
+              <div class="stat-card">
+                <strong>43.9%</strong>
+                <span>feel not in control of their expenses.</span>
+              </div>
+            </div>
+
+            <div class="research-footer">
+              <div class="mini-insight">
+                <strong>65%+</strong>
+                <p>of loan beneficiaries are young people under 40 years old.</p>
+              </div>
+
+              <div class="mini-insight">
+                <strong>1.6%</strong>
+                <p>Saudi Arabia’s savings rate is around 1.6%, one of the lowest among G20 countries.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STYLE GUIDE -->
+    <section>
+      <div class="container">
+        <p class="eyebrow">Style Guides</p>
+        <h2 class="section-title">Friendly, clear, and financially stable.</h2>
+
+        <div class="style-grid">
+          <div class="guide-card">
+            <h3>Visual Direction</h3>
+            <p>
+              The color system reflects freshness, movement, and quick action.
+              The dark and neutral colors create contrast and keep the design modern and clear.
+            </p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Typography</h3>
+            <p>
+              SF Pro Display is used for titles and important headings because it is clean,
+              bold, and easy to scan.
+            </p>
+            <p>
+              SF Pro Rounded gives the app a softer and more approachable personality,
+              making financial management feel less intimidating.
+            </p>
+          </div>
+
+          <div class="guide-card">
+            <h3>Primary Colors</h3>
+            <p>Blue tones communicate stability, trust, clarity, and financial awareness.</p>
+
+            <div class="palette">
+              <div class="swatch c1"></div>
+              <div class="swatch c2"></div>
+              <div class="swatch c3"></div>
+              <div class="swatch c4"></div>
+              <div class="swatch c5"></div>
+              <div class="swatch c6"></div>
+            </div>
+          </div>
+
+          <div class="guide-card">
+            <h3>Neutral Colors</h3>
+            <p>Neutral shades support readability, contrast, and a clean app structure.</p>
+
+            <div class="palette">
+              <div class="swatch n1"></div>
+              <div class="swatch n2"></div>
+              <div class="swatch n3"></div>
+              <div class="swatch n4"></div>
+              <div class="swatch n5"></div>
+            </div>
+          </div>
+
+          <div class="guide-card wide-card">
+            <h3>Margins, Sizes, and Corners</h3>
+            <p>
+              Spacing in Budgie follows multiples of 8 to keep the layout consistent and organized.
+              Corner radius follows multiples of 2, creating a 1:4 relationship between corners and spacing.
+            </p>
+
+            <img class="guide-image" src="images/spacing-guide.png" alt="Budgie spacing and corner guide">
+          </div>
+
+          <div class="guide-card wide-card">
+            <h3>Images</h3>
+            <p>
+              The visual elements are inspired by the budgie bird, which acts as the app’s mascot.
+              The mascot gives the app a friendly and supportive personality.
+            </p>
+
+            <div class="bird-images">
+              <img src="images/bird-05.png" alt="Budgie bird illustration 1">
+              <img src="images/bird-06.png" alt="Budgie bird illustration 2">
+              <img src="images/bird-07.png" alt="Budgie bird illustration 3">
+            </div>
+
+            <div class="bird-images">
+              <img src="images/bird-01.png" alt="Budgie bird illustration 1">
+              <img src="images/bird-02.png" alt="Budgie bird illustration 2">
+              <img src="images/bird-03.png" alt="Budgie bird illustration 3">
+              <img src="images/bird-04.png" alt="Budgie bird illustration 4">
+            </div>
+            <div class="bird-images">
+              <img src="images/bird-08.png" alt="Budgie bird illustration 1">
+              <img src="images/bird-09.png" alt="Budgie bird illustration 2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROMOTION VIDEO -->
+    <section id="video" class="video-section">
+      <div class="container">
+        <div class="video-grid">
+          <div>
+            <p class="eyebrow">Promotion Video</p>
+            <h2 class="section-title white">See Budgie in action.</h2>
+
+            <p class="section-lead" style="color: rgba(255,255,255,0.72);">
+              Add your final promo video here to show the problem, solution,
+              app features, and how Budgie supports smarter daily spending.
+            </p>
+          </div>
+
+          <div class="video-frame">
+            <!-- Replace this placeholder with your video file. Example:
+            <video controls poster="images/video-cover.png">
+              <source src="videos/budgie-promo.mp4" type="video/mp4">
+            </video>
+            -->
+
+            <div class="video-placeholder">
+              <video controls poster="images/video-cover.png">
+                <source src="videos/budgie-promo.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TASK FLOW -->
+    <section>
+      <div class="container">
+        <p class="eyebrow">Task Flow</p>
+        <h2 class="section-title">Setting a monthly food budget.</h2>
+
+        <p class="section-lead">
+          Scenario: A user wants to set a monthly budget for food.
+        </p>
+
+        <div class="task-layout">
+          <div class="flow-list">
+            <div class="flow-item">Dashboard</div>
+            <div class="flow-item">See All Categories</div>
+            <div class="flow-item">Add Category</div>
+            <div class="flow-item">Input Category Budget</div>
+            <div class="flow-item">Save</div>
+          </div>
+
+          <img class="task-image" src="images/task-flow-illustration.png" alt="Budgie task flow illustration">
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERFACES -->
+    <section class="interfaces-section">
+      <div class="container">
+        <p class="eyebrow">Interfaces</p>
+        <h2 class="section-title">App screens</h2>
+
+        <div class="interfaces-grid">
+          <img src="images/interface-00.png" alt="Budgie interface 0">
+          <img src="images/interface-01.png" alt="Budgie interface 1">
+          <img src="images/interface-02.png" alt="Budgie interface 2">
+          <img src="images/interface-03.png" alt="Budgie interface 3">
+          <img src="images/interface-04.png" alt="Budgie interface 4">
+          <img src="images/interface-05.png" alt="Budgie interface 5">
+          <img src="images/interface-06.png" alt="Budgie interface 6">
+          <img src="images/interface-07.png" alt="Budgie interface 7">
+          <img src="images/interface-08.png" alt="Budgie interface 8">
+          <img src="images/interface-09.png" alt="Budgie interface 9">
+          <img src="images/interface-10.png" alt="Budgie interface 10">
+          <img src="images/interface-11.png" alt="Budgie interface 11">
+          <img src="images/interface-12.png" alt="Budgie interface 12">
+          <img src="images/interface-13.png" alt="Budgie interface 13">
+          <img src="images/interface-14.png" alt="Budgie interface 14">
+          <img src="images/interface-15.png" alt="Budgie interface 15">
+          <img src="images/interface-16.png" alt="Budgie interface 16">
+          <img src="images/interface-17.png" alt="Budgie interface 17">
+          <img src="images/interface-18.png" alt="Budgie interface 18">
+          <img src="images/interface-19.png" alt="Budgie interface 19">
+          <img src="images/interface-20.png" alt="Budgie interface 20">
+          <img src="images/interface-21.png" alt="Budgie interface 21">
+          <img src="images/interface-22.png" alt="Budgie interface 22">
+        </div>
+      </div>
+    </section>
+
+    <!-- WIDGETS -->
+    <section>
+      <div class="container">
+        <p class="eyebrow">Widgets</p>
+        <h2 class="section-title">Budget visibility at a glance.</h2>
+
+        <div class="widgets-row">
+          <img src="images/widget-01.png" alt="Budgie widget 1">
+          <img src="images/widget-02.png" alt="Budgie widget 2">
+          <img src="images/widget-03.png" alt="Budgie widget 3">
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="team-section">
+      <div class="container">
+        <p class="eyebrow">Team</p>
+        <h2 class="section-title white">Built by Team 16.</h2>
+
+        <p class="section-lead" style="color: rgba(255,255,255,0.72);">
+          Meet the team behind Budgie. Click any profile to visit their LinkedIn page.
+        </p>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <img src="images/team-wasan.png" alt="Wasan Jayid Althagafi">
+            <h3>Wasan Jayid Althagafi</h3>
+            <p>Full Stack Developer</p>
+            <a class="linkedin-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          </article>
+
+          <article class="team-card">
+            <img src="images/team-abeer.png" alt="Abeer Jeilani Osman">
+            <h3>Abeer Jeilani Osman</h3>
+            <p>Full Stack Developer</p>
+            <a class="linkedin-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          </article>
+
+          <article class="team-card">
+            <img src="images/team-lojaen.png" alt="Lojaen Jehad Ayash">
+            <h3>Lojaen Jehad Ayash</h3>
+            <p>Full Stack Developer</p>
+            <a class="linkedin-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          </article>
+
+          <article class="team-card">
+            <img src="images/team-ruba.png" alt="Ruba Mohammed Alghamdi">
+            <h3>Ruba Mohammed Alghamdi</h3>
+            <p>Front-End | Design</p>
+            <a class="linkedin-link" href="https://www.linkedin.com/in/ruba-alghamdi-a92981314/" target="_blank">LinkedIn</a>
+          </article>
+
+          <article class="team-card">
+            <img src="images/team-raghad.png" alt="Raghad Nawaf Aljuid">
+            <h3>Raghad Nawaf Aljuid</h3>
+            <p>Data Analyst | Back-End</p>
+            <a class="linkedin-link" href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MOCKUP -->
+    <section class="mockup-section">
+      <div class="container">
+        <p class="eyebrow">Mockup</p>
+        <h2 class="section-title white">Budgie on iPhone.</h2>
+
+        <img class="mockup-image" src="images/budgie-mockup.png" alt="Budgie app mockup">
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
