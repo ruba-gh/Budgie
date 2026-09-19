@@ -1,55 +1,36 @@
 # Budgie website
 
-A responsive, static landing page for potential Budgie users. The layout follows the supplied Al Rajhi reference screenshots, using Budgie's navy, blue, cyan, mint, and orange palette and existing artwork.
+A static, responsive landing page using Budgie’s existing colors and artwork. No build step is required. Run `python3 -m http.server 8000` to preview locally.
 
-## Edit the website
+## Homepage order
 
-No build tools or installation are needed. Open `index.html`, or run `python3 -m http.server 8000` in this directory and visit `http://localhost:8000`.
+1. `home`: introduction and feature carousel.
+2. `numbers`: early research with 114 participants and the original survey findings.
+3. `app`: one iPhone preview with overlapping feature cards.
+4. `news`: three product stories, with full text in accessible dialogs.
 
-| What to change                                  | Where                                                                                 |
-| ----------------------------------------------- | ------------------------------------------------------------------------------------- |
-| Headings, paragraphs, team names, links         | `index.html`; search for the visible wording or a section ID below                    |
-| Pictures                                        | Replace the matching file in `images/`, or change its `src` and `alt` in `index.html` |
-| Brand colors                                    | The named `:root` tokens at the top of `styles.css`                                   |
-| Spacing, type, corners, mobile layouts          | `styles.css`                                                                          |
-| Carousel, menu, image preview, entrance effects | `site.js`                                                                             |
-| App Store destination and optional promo video  | `site-config.js`                                                                      |
+All other homepage sections have been removed. The original source is retained in `content/original-page.html` as an editing archive. Existing image assets remain available for future edits.
 
-Text is real HTML and independent of the imagery. Some **existing** feature poster PNGs have text baked into them; replace those image files to change their artwork. Newly added card headings and descriptions remain editable HTML.
+## Editing
 
-### Page sections
+| Change                                                | File                                         |
+| ----------------------------------------------------- | -------------------------------------------- |
+| Homepage copy, story text, images and links           | `index.html`                                 |
+| Terms, privacy and cookies copy                       | `terms.html`, `privacy.html`, `cookies.html` |
+| Colors, typography, spacing and responsive layouts    | `styles.css`                                 |
+| Carousel, dialogs, mobile menu and motion preferences | `site.js`                                    |
+| Verified App Store listing URL                        | `site-config.js`                             |
 
-- `home`: centered introduction and four-feature carousel (three visible on desktop).
-- `features`: expanding hover/focus cards; all features remain usable on touch.
-- `about`: why Budgie was created.
-- `how-it-works`: the three setup steps.
-- `widgets`: widget overview using the existing feature poster.
-- `our-approach`: full original value proposition.
-- `app`: iPhone app overview and mockup.
-- `how-we-built-it`: original five-stage process plus SwiftUI / Shortcuts implementation overview.
-- `research`: the original 114-participant research and four survey findings.
-- `team`: all five original team members and roles.
-- `explore-more`: complete app/problem copy, design system, category-budget flow, and all 23 app screens in expandable sections. Direct links to `design`, `budget-guide`, or `screens` automatically open their section when JavaScript is enabled.
-- `faq`: answers based on the existing product description.
+Text is editable HTML. Existing poster images may contain baked-in text; replace their files to edit that artwork. Set `appStoreUrl` to a verified `https://apps.apple.com/...` URL to reveal the download link. No listing URL was available in the original repository.
 
-To add a hero feature, copy a `.hero-card` and its corresponding dot, then give both a matching sequential `data-slide` / `data-goto` index. Other feature cards and content can be duplicated directly in HTML.
+## Policy scope
 
-## Content retained and missing assets
+The three policy pages cover this website. They do not claim to describe the iPhone app’s data processing. Confirm the app’s actual data flows, service providers and owner/contact details before preparing a separate app policy.
 
-All existing image files are retained unchanged. The complete original page is also retained in `content/original-page.html` for exact text and asset-reference recovery. This is an editing archive, not a linked public navigation page; image references inside it describe the original root-level paths.
+The site adds no analytics or tracking cookies. An explicit motion-toggle choice is saved as `budgie-reduce-motion` in local storage; the Cookies page provides a reset button. Hosting-provider technical logging is described separately, with a link to GitHub’s privacy statement.
 
-The original file referenced `videos/budgie-promo.mp4`, `images/video-cover.png`, and `images/widget-01.png` through `widget-03.png`, none of which exist in the source repository. The public landing page uses the available widget poster and omits the broken video. To enable the video, add the actual media and set `promoVideo` in `site-config.js`; the working video section then appears after the app overview.
+## Interaction and accessibility
 
-The original page had four generic `linkedin.com` homepage links. Those are omitted until real profiles are available; Ruba's existing individual profile is retained. Add verified links beside each team member in `index.html`.
+The carousel supports buttons and arrow keys, with no automatic rotation. Story dialogs support Escape and return focus to the triggering button. Mobile navigation, keyboard focus styles, section entrance effects and hover transitions are included. Device reduced-motion settings are respected, with an optional saved override in the utility bar.
 
-No exact App Store listing URL was present. Set `appStoreUrl` in `site-config.js` to the verified `https://apps.apple.com/...` destination to reveal the download button. The default “Explore Budgie” buttons navigate within the page.
-
-The original 65%+ loan / 1.6% national savings figures are preserved in the original-page archive rather than presented as current statistics without dates or sources. The four product-research figures remain on the page, explicitly described as early product research.
-
-## Motion and accessibility
-
-Each main content section reveals on entry. Cards and images have hover transitions, with keyboard focus alternatives. The carousel never auto-rotates. It supports arrows, dot buttons, and Left/Right keys; previews use a native dialog with Escape dismissal. The header has a mobile menu. OS reduced-motion preferences are respected, with an additional saved motion toggle in the utility bar. Main content remains visible if JavaScript is unavailable.
-
-## Review and publication
-
-This is a plain HTML/CSS/JS GitHub Pages-compatible site. Review the pull request before merging it into `main`. Existing hosting can serve these files directly; no backend, account signup, or analytics service was added.
+This is a GitHub Pages-compatible HTML/CSS/JS site. Merge the pull request to update the repository’s main branch; publication follows the repository’s hosting configuration.
