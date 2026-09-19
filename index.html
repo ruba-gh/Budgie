@@ -1,24 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" id="top">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Budgie — Budget smarter before you spend</title>
+    <title>Budget smarter before you spend — Budgie</title>
     <meta
       name="description"
-      content="Meet Budgie: everyday budgeting for iPhone. Discover automated expense tracking, custom budgets, spending insights, and the team and research behind the app."
+      content="Discover Budgie, our research, the iPhone app, and our latest product stories."
     />
     <meta name="theme-color" content="#071b48" />
-    <meta
-      property="og:title"
-      content="Budgie — Budget smarter before you spend"
-    />
-    <meta
-      property="og:description"
-      content="Get to know the app, our story, and a simpler approach to everyday budgeting."
-    />
-    <meta property="og:type" content="website" />
-    <link rel="icon" href="images/bird-05.png" type="image/png" />
+    <link rel="icon" href="images/bird-05.png" />
     <link rel="stylesheet" href="styles.css" />
     <script src="site-config.js" defer></script>
     <script src="site.js" defer></script>
@@ -29,8 +20,7 @@
       <div class="nav-container">
         <span>Everyday budgeting, made simpler.</span>
         <div>
-          <a href="#team">Meet the team</a
-          ><a href="#faq">Questions &amp; answers</a
+          <a href="privacy.html">Privacy</a
           ><button class="motion-toggle" aria-pressed="false">
             Reduce motion
           </button>
@@ -43,13 +33,9 @@
           ><img
             src="images/budgie-logo.png"
             alt="Budgie"
-            width="152"
-            height="40"
-        /></a>
-        <div class="nav-switch">
-          <a href="#features">The app</a><a href="#about">Our story</a>
-        </div>
-        <button
+            width="144"
+            height="38" /></a
+        ><button
           class="menu-toggle"
           aria-expanded="false"
           aria-controls="primary-nav"
@@ -57,9 +43,8 @@
           Menu <span aria-hidden="true">☰</span>
         </button>
         <nav id="primary-nav" aria-label="Main navigation">
-          <a href="#features">Features</a
-          ><a href="#how-it-works">How it works</a
-          ><a href="#how-we-built-it">Our process</a><a href="#team">About us</a
+          <a href="#home">Home</a><a href="#numbers">Our numbers</a
+          ><a href="#app">The app</a><a href="#news">Latest news</a
           ><a class="button" href="#app"
             >Explore Budgie <span aria-hidden="true">↗</span></a
           >
@@ -70,11 +55,10 @@
       <section id="home" class="hero-section">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">A little clarity. Every day.</p>
             <h1>Budget smarter before you spend.</h1>
             <p>
-              Understand your spending. Build better habits. Make room for what
-              matters.
+              Everyday budgeting that fits your life and supports your next
+              step.
             </p>
           </div>
           <div
@@ -100,7 +84,7 @@
                     fetchpriority="auto"
                   />
                 </div>
-                <a class="card-link" href="#features"
+                <a class="card-link" href="#app"
                   ><span class="round-icon" aria-hidden="true">▦</span
                   ><span
                     ><strong>Categories</strong
@@ -120,7 +104,7 @@
                     fetchpriority="high"
                   />
                 </div>
-                <a class="card-link" href="#features"
+                <a class="card-link" href="#app"
                   ><span class="round-icon" aria-hidden="true">◷</span
                   ><span
                     ><strong>Daily insights</strong
@@ -141,7 +125,7 @@
                     fetchpriority="auto"
                   />
                 </div>
-                <a class="card-link" href="#how-it-works"
+                <a class="card-link" href="#app"
                   ><span class="round-icon" aria-hidden="true">↗</span
                   ><span
                     ><strong>Automatic tracking</strong
@@ -162,7 +146,7 @@
                     fetchpriority="auto"
                   />
                 </div>
-                <a class="card-link" href="#widgets"
+                <a class="card-link" href="#app"
                   ><span class="round-icon" aria-hidden="true">▦</span
                   ><span
                     ><strong>Widgets</strong
@@ -200,1101 +184,340 @@
           </div>
         </div>
       </section>
-
-      <!-- PAGE SECTION -->
-      <!-- Editable feature cards -->
-      <section id="features" class="tinted">
+      <section id="numbers" class="numbers-section">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">Designed for your everyday</p>
-            <h2>More confidence. Less guesswork.</h2>
-            <p>A simpler way to organize, track, and understand your money.</p>
-          </div>
-          <div class="expand-grid">
-            <article class="expand-card tone-0">
-              <div class="expand-copy">
-                <p>Make it yours</p>
-                <h3>Budgets that fit your life</h3>
-                <p class="expand-description">
-                  Set spending categories and budgets around your priorities.
-                </p>
-              </div>
-              <img
-                src="images/interface-13.png"
-                alt="Budgets that fit your life in Budgie"
-                loading="lazy"
-              /><a class="expand-link" href="#budget-guide"
-                ><span>Learn more</span><b aria-hidden="true">↗</b
-                ><span class="sr-only"> about make it yours</span></a
-              >
-            </article>
-            <article class="expand-card tone-1">
-              <div class="expand-copy">
-                <p>Track with less effort</p>
-                <h3>Small purchases, accounted for</h3>
-                <p class="expand-description">
-                  Use iOS Shortcuts with bank SMS to import spending and reduce
-                  manual entry.
-                </p>
-              </div>
-              <img
-                src="images/interface-18.png"
-                alt="Small purchases, accounted for in Budgie"
-                loading="lazy"
-              /><a class="expand-link" href="#how-it-works"
-                ><span>Learn more</span><b aria-hidden="true">↗</b
-                ><span class="sr-only"> about track with less effort</span></a
-              >
-            </article>
-            <article class="expand-card tone-2">
-              <div class="expand-copy">
-                <p>See the bigger picture</p>
-                <h3>Insights you can act on</h3>
-                <p class="expand-description">
-                  Review daily, weekly, and monthly spending to understand your
-                  habits.
-                </p>
-              </div>
-              <img
-                src="images/interface-10.png"
-                alt="Insights you can act on in Budgie"
-                loading="lazy"
-              /><a class="expand-link" href="#screens"
-                ><span>Learn more</span><b aria-hidden="true">↗</b
-                ><span class="sr-only"> about see the bigger picture</span></a
-              >
-            </article>
-            <article class="expand-card tone-3">
-              <div class="expand-copy">
-                <p>Keep it in sight</p>
-                <h3>Your budget, at a glance</h3>
-                <p class="expand-description">
-                  Check your remaining budget quickly with a Budgie widget.
-                </p>
-              </div>
-              <img
-                src="images/feature-widget.png"
-                alt="Your budget, at a glance in Budgie"
-                loading="lazy"
-              /><a class="expand-link" href="#widgets"
-                ><span>Learn more</span><b aria-hidden="true">↗</b
-                ><span class="sr-only"> about keep it in sight</span></a
-              >
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section id="about">
-        <div class="container">
-          <div class="intro-grid">
-            <div>
-              <p class="eyebrow">Why we built Budgie</p>
-              <h2 class="section-title">
-                Good habits start with a little support.
-              </h2>
-
-              <div class="text-block">
-                <p>
-                  Managing money is not always difficult because people do not
-                  care. It is often difficult because tracking expenses takes
-                  effort, spending decisions happen quickly, and many users only
-                  notice overspending after the money is already gone.
-                </p>
-
-                <p>
-                  Budgie was created to support adults in Saudi Arabia who want
-                  better financial stability but struggle with consistency,
-                  impulsive spending, and manual budgeting.
-                </p>
-
-                <p>
-                  The goal is to create a simple, low-effort budgeting
-                  experience that helps users feel more aware, confident, and in
-                  control of their daily spending.
-                </p>
-              </div>
-            </div>
-
-            <div class="intro-visual">
-              <img
-                loading="lazy"
-                src="images/box-bird.png"
-                alt="Budgie bird box illustration"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section class="mission">
-        <div class="container">
-          <p class="eyebrow">Our purpose</p>
-          <p>
-            An app that helps adult users with irregular spending maintain
-            financial stability and consistency by categorizing income, tracking
-            daily transactions, and providing real-time affordability insights.
-          </p>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section id="how-it-works">
-        <div class="container">
-          <div class="section-heading">
-            <p class="eyebrow">Getting started</p>
-            <h2>A little setup. A clearer everyday.</h2>
-            <p>Build a budgeting routine that works for you.</p>
-          </div>
-          <div class="steps-grid">
-            <article>
-              <span class="step-number">01</span>
-              <h3>Set your budget</h3>
-              <p>
-                Organize your income and create spending categories for the
-                things that matter to you.
-              </p>
-            </article>
-            <article>
-              <span class="step-number">02</span>
-              <h3>Set up tracking</h3>
-              <p>
-                Configure an iOS Shortcuts automation to import your bank SMS
-                transactions into Budgie.
-              </p>
-            </article>
-            <article>
-              <span class="step-number">03</span>
-              <h3>Stay in the picture</h3>
-              <p>
-                Review your spending, check your remaining budget, and use
-                insights to guide your next decision.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section id="widgets" class="tinted">
-        <div class="container split">
-          <div>
-            <p class="eyebrow">Widgets</p>
-            <h2>Budget visibility<br />at a glance.</h2>
+            <h2>Real people. Meaningful insights.</h2>
             <p>
-              Keep your budget close throughout the day. Budgie’s widgets let
-              you check your spending quickly without opening the app.
+              Our early research with 114 participants shaped Budgie around the
+              challenges of everyday spending.
             </p>
-            <a class="button" href="#screens"
-              >Explore app screens <span aria-hidden="true">→</span></a
-            >
           </div>
-          <div class="widget-visual">
-            <img
-              src="images/feature-widget.png"
-              alt="Budgie widget preview"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section class="value-section" id="our-approach">
-        <div class="container">
-          <div class="value-grid">
-            <div>
-              <p class="eyebrow">Our approach</p>
-              <h2 class="section-title white">
-                Daily financial control, without the effort.
-              </h2>
-            </div>
-
-            <div class="value-copy">
-              <p>
-                Budgie helps users stay in control of their daily spending by
-                turning budgeting into an automated, real-time, and effortless
-                experience.
-              </p>
-
-              <p>
-                Unlike traditional financial apps that only show users what they
-                spent after the fact, Budgie helps users make smarter decisions
-                before overspending happens.
-              </p>
-
-              <div class="value-list">
-                <div class="value-item">
-                  <strong>Automated tracking</strong>
-                  <span>Through iOS Shortcuts and SMS notifications.</span>
-                </div>
-
-                <div class="value-item">
-                  <strong>Customizable budgets</strong>
-                  <span>Across different cards and spending categories.</span>
-                </div>
-
-                <div class="value-item">
-                  <strong>Daily budget focus</strong>
-                  <span>Makes money management easier and more realistic.</span>
-                </div>
-
-                <div class="value-item">
-                  <strong>Easy widget access</strong>
-                  <span
-                    >Lets users check their budget quickly without opening the
-                    app.</span
-                  >
-                </div>
+          <div class="metrics-grid">
+            <article class="metric people-metric">
+              <div class="metric-copy">
+                <p>People in our research</p>
+                <h3>114 participants</h3>
               </div>
-            </div>
-          </div>
-
-          <div class="one-line">
-            Budgie gives users daily financial control by combining automated
-            tracking, customizable budgets, and real-time spending guidance in
-            one simple app.
-          </div>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section class="mockup-section" id="app">
-        <div class="container">
-          <p class="eyebrow">Meet your everyday budget companion</p>
-          <h2 class="section-title white">Your money. A clearer picture.</h2>
-
-          <p class="section-lead">
-            Budgie brings automated tracking, customizable budgets, spending
-            insights, and quick widget access together on iPhone.
-          </p>
-          <a class="button" href="#how-it-works"
-            >See how it works <span aria-hidden="true">→</span></a
-          ><a class="button app-store-link" hidden>Download on the App Store</a
-          ><img
-            loading="lazy"
-            class="mockup-image"
-            src="images/budgie-mockup.png"
-            alt="Budgie app mockup"
-          />
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section id="how-we-built-it">
-        <div class="container">
-          <p class="eyebrow">Our Process</p>
-          <h2 class="section-title">How we brought Budgie to life.</h2>
-
-          <p class="section-lead">
-            We combined behavioral research, thoughtful design, and native iOS
-            development to make everyday budgeting easier.
-          </p>
-          <div class="tech-strip">
-            <span>SwiftUI</span><span>iOS Shortcuts</span
-            ><span>Bank SMS import</span><span>Widgets</span>
-          </div>
-          <div class="process-list">
-            <div class="process-item">
-              <div class="process-number">01</div>
-              <h3>Understanding the Problem</h3>
-              <p>
-                We explored why budgeting is challenging for many. The main
-                issues include lack of awareness, consistency, discipline, and
-                supportive systems for better spending.
-              </p>
-            </div>
-
-            <div class="process-item">
-              <div class="process-number">02</div>
-              <h3>Research & Insights</h3>
-              <p>
-                Our research revealed that expense management is primarily a
-                behavioral issue. Users need support before they spend, not just
-                afterward.
-              </p>
-            </div>
-
-            <div class="process-item">
-              <div class="process-number">03</div>
-              <h3>Defining the Opportunity</h3>
-              <p>
-                Saudi Arabia’s growing fintech sector and rising digital payment
-                habits created an opportunity for a localized budgeting app that
-                fits daily financial behavior.
-              </p>
-            </div>
-
-            <div class="process-item">
-              <div class="process-number">04</div>
-              <h3>Designing the Solution</h3>
-              <p>
-                We designed Budgie to be visual, simple, and easy to use. The
-                app shows income, spending, remaining balance, categories, and
-                insights clearly.
-              </p>
-            </div>
-
-            <div class="process-item">
-              <div class="process-number">05</div>
-              <h3>Supporting Better Habits</h3>
-              <p>
-                Budgie keeps users informed through alerts, spending insights,
-                and guidance on purchase impact without making users feel judged
-                or overwhelmed.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="container build-note">
-          <h3>Built for iPhone</h3>
-          <p>
-            Budgie’s interface is built with SwiftUI. Its tracking flow uses iOS
-            Shortcuts to bring bank SMS transactions into the app, while
-            categories, insights, and widgets help turn those records into an
-            everyday budgeting habit.
-          </p>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section class="research-section" id="research">
-        <div class="container">
-          <p class="eyebrow">Our research</p>
-          <h2 class="section-title">Built around real spending habits.</h2>
-
-          <p class="section-lead">
-            In our early product research, we engaged 114 participants to
-            understand how people manage budgets, track spending, and experience
-            loss of control with daily expenses.
-          </p>
-
-          <div class="research-layout">
-            <div class="research-summary">
-              <h3>Key insight</h3>
-              <p>
-                Users are not missing awareness only. They are missing a system
-                that helps them act at the right time, especially before small
-                daily purchases turn into overspending.
-              </p>
-            </div>
-
-            <div>
-              <div class="research-stats">
-                <div class="stat-card">
-                  <strong>62.3%</strong>
-                  <span>have a budget but do not stick to it.</span>
-                </div>
-
-                <div class="stat-card">
-                  <strong>90.4%</strong>
-                  <span>realize overspending by the end of the week.</span>
-                </div>
-
-                <div class="stat-card">
-                  <strong>52.6%</strong>
-                  <span>track expenses mentally.</span>
-                </div>
-
-                <div class="stat-card">
-                  <strong>43.9%</strong>
-                  <span>feel not in control of their expenses.</span>
-                </div>
+              <div class="metric-art people-art" aria-hidden="true">
+                <img src="images/team-abeer.png" alt="" /><img
+                  src="images/team-ruba.png"
+                  alt=""
+                /><img src="images/team-wasan.png" alt="" /><img
+                  src="images/team-raghad.png"
+                  alt=""
+                />
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PAGE SECTION -->
-      <section class="team-section" id="team">
-        <div class="container">
-          <p class="eyebrow">Team</p>
-          <h2 class="section-title white">Built by Team 16.</h2>
-
-          <p class="section-lead">
-            A team of developers, designers, and analysts working toward simpler
-            everyday budgeting.
-          </p>
-
-          <div class="team-grid">
-            <article class="team-card">
-              <img
-                loading="lazy"
-                src="images/team-wasan.png"
-                alt="Wasan Jayid Althagafi"
-              />
-              <h3>Wasan Jayid Althagafi</h3>
-              <p>Full Stack Developer</p>
             </article>
-
-            <article class="team-card">
-              <img
-                loading="lazy"
-                src="images/team-abeer.png"
-                alt="Abeer Jeilani Osman"
-              />
-              <h3>Abeer Jeilani Osman</h3>
-              <p>Full Stack Developer</p>
+            <article class="metric awareness-metric">
+              <div class="metric-copy">
+                <p>Notice overspending by the end of the week</p>
+                <h3>90.4%</h3>
+              </div>
+              <div class="metric-art bars" aria-hidden="true">
+                <i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+              </div>
             </article>
-
-            <article class="team-card">
-              <img
-                loading="lazy"
-                src="images/team-lojaen.png"
-                alt="Lojaen Jehad Ayash"
-              />
-              <h3>Lojaen Jehad Ayash</h3>
-              <p>Full Stack Developer</p>
-            </article>
-
-            <article class="team-card">
-              <img
-                loading="lazy"
-                src="images/team-ruba.png"
-                alt="Ruba Mohammed Alghamdi"
-              />
-              <h3>Ruba Mohammed Alghamdi</h3>
-              <p>Front-End | Design</p>
-              <a
-                class="linkedin-link"
-                href="https://www.linkedin.com/in/ruba-alghamdi-a92981314/"
-                target="_blank"
-                rel="noopener noreferrer"
-                >LinkedIn</a
+            <article class="metric habit-metric">
+              <div class="metric-copy">
+                <p>Have a budget but do not stick to it</p>
+                <h3>62.3%</h3>
+                <small>Findings from our early product research</small>
+              </div>
+              <svg
+                class="metric-art wave"
+                aria-hidden="true"
+                viewBox="0 0 250 110"
               >
+                <path
+                  d="M0 20 C30 20 30 90 65 70 S110 30 145 70 S200 70 250 105"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="4"
+                />
+                <path
+                  d="M0 20 C30 20 30 90 65 70 S110 30 145 70 S200 70 250 105 L250 110H0Z"
+                  fill="currentColor"
+                  opacity=".08"
+                />
+                <circle
+                  cx="65"
+                  cy="70"
+                  r="8"
+                  fill="white"
+                  stroke="currentColor"
+                  stroke-width="4"
+                />
+              </svg>
             </article>
-
-            <article class="team-card">
-              <img
-                loading="lazy"
-                src="images/team-raghad.png"
-                alt="Raghad Nawaf Aljuid"
-              />
-              <h3>Raghad Nawaf Aljuid</h3>
-              <p>Data Analyst | Back-End</p>
+            <article class="metric mental-metric">
+              <div class="metric-copy">
+                <p>Track expenses mentally</p>
+                <h3>52.6%</h3>
+              </div>
+              <span class="metric-icon" aria-hidden="true">◷</span>
+            </article>
+            <article class="metric control-metric">
+              <div class="metric-copy">
+                <p>Feel not in control of expenses</p>
+                <h3>43.9%</h3>
+              </div>
+              <span class="metric-icon orange" aria-hidden="true">◎</span>
             </article>
           </div>
         </div>
       </section>
-
-      <!-- PAGE SECTION -->
-      <section id="explore-more">
+      <section id="app" class="app-section">
         <div class="container">
           <div class="section-heading">
-            <p class="eyebrow">A closer look</p>
-            <h2>Explore the details.</h2>
-            <p>Discover the thinking, design, and screens behind Budgie.</p>
+            <h2>Your everyday budget. In one place.</h2>
+            <p>
+              Automatic tracking, custom categories, clear insights, and
+              widgets.<br />A little support for every spending decision.
+            </p>
+            <a class="button app-store-link" hidden>Download on the App Store</a
+            ><span class="platform-label">Designed for iPhone</span>
           </div>
-          <details class="detail-section">
-            <summary>The app and the opportunity</summary>
-            <div class="detail-content">
-              <section id="product-details">
-                <div class="container">
-                  <div class="about-header">
-                    <div>
-                      <p class="eyebrow">About Budgie</p>
-                      <h3 class="section-title">
-                        A finance app that supports behavior.
-                      </h3>
-                    </div>
-
-                    <div class="text-block">
-                      <p>
-                        Budgie is a smart budgeting app designed to help users
-                        track expenses, organize spending, and understand the
-                        impact of their purchases in real time.
-                      </p>
-
-                      <p>
-                        The app reduces the friction of manual expense tracking
-                        by automatically recording and categorizing spending. It
-                        gives users clear insights into where their money goes,
-                        alerts them when they are close to budget limits, and
-                        helps them pause before making unnecessary purchases.
-                      </p>
-                    </div>
-                  </div>
-
-                  <div class="core-card">
-                    <h3>Core idea</h3>
-                    <p>
-                      A low-effort budgeting app that helps users stay
-                      consistent, understand their spending, and make smarter
-                      purchase decisions before they pay.
-                    </p>
-                  </div>
-
-                  <div class="features-grid">
-                    <article class="feature-card">
-                      <img
-                        loading="lazy"
-                        src="images/feature-categorize.png"
-                        alt="Categorize your budget screen"
-                      />
-                    </article>
-
-                    <article class="feature-card">
-                      <img
-                        loading="lazy"
-                        src="images/feature-tracking.png"
-                        alt="Automated payment tracking screen"
-                      />
-                    </article>
-
-                    <article class="feature-card">
-                      <img
-                        loading="lazy"
-                        src="images/feature-performance.png"
-                        alt="Performance details screen"
-                      />
-                    </article>
-
-                    <article class="feature-card">
-                      <img
-                        loading="lazy"
-                        src="images/feature-widget.png"
-                        alt="Budgie widget preview"
-                      />
-                    </article>
-                  </div>
-                </div>
-              </section>
-
-              <!-- PAGE SECTION -->
-              <section class="problem-section">
-                <div class="container">
-                  <p class="eyebrow">Problem / Opportunity</p>
-                  <h2 class="section-title">
-                    Budgeting fails at the moment of spending.
-                  </h2>
-
-                  <div class="problem-grid">
-                    <div class="problem-card">
-                      <h3>The problem</h3>
-
-                      <p>
-                        People do not fail at budgeting because they lack
-                        financial knowledge. They fail because daily spending is
-                        fast, invisible, and often influenced by habits,
-                        emotions, and social pressure.
-                      </p>
-                    </div>
-
-                    <div class="problem-card">
-                      <h3>The opportunity</h3>
-
-                      <p>
-                        Most financial apps help users pay, save, track, or
-                        analyze their money, but they do not support users at
-                        the moment when spending decisions happen.
-                      </p>
-
-                      <p>
-                        This creates an opportunity for Budgie to help users
-                        build consistent financial behavior through automated
-                        expense tracking, customizable daily budgets, and
-                        real-time purchase feedback.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </section>
+          <div class="app-composition">
+            <div class="app-phone">
+              <span class="phone-island" aria-hidden="true"></span
+              ><img
+                src="images/interface-09.png"
+                alt="Budgie dashboard with income, spending insights, and budget categories"
+                loading="lazy"
+              />
             </div>
-          </details>
-          <details class="detail-section">
-            <summary>Our visual identity and design system</summary>
-            <div class="detail-content">
-              <section id="design">
-                <div class="container">
-                  <p class="eyebrow">Style Guides</p>
-                  <h2 class="section-title">
-                    Friendly, clear, and financially stable.
-                  </h2>
-
-                  <div class="style-grid">
-                    <div class="guide-card">
-                      <h3>Visual Direction</h3>
-                      <p>
-                        The color system reflects freshness, movement, and quick
-                        action. The dark and neutral colors create contrast and
-                        keep the design modern and clear.
-                      </p>
-                    </div>
-
-                    <div class="guide-card">
-                      <h3>Typography</h3>
-                      <p>
-                        SF Pro Display is used for titles and important headings
-                        because it is clean, bold, and easy to scan.
-                      </p>
-                      <p>
-                        SF Pro Rounded gives the app a softer and more
-                        approachable personality, making financial management
-                        feel less intimidating.
-                      </p>
-                    </div>
-
-                    <div class="guide-card">
-                      <h3>Primary Colors</h3>
-                      <p>
-                        Blue tones communicate stability, trust, clarity, and
-                        financial awareness.
-                      </p>
-
-                      <div class="palette">
-                        <div class="swatch c1"></div>
-                        <div class="swatch c2"></div>
-                        <div class="swatch c3"></div>
-                        <div class="swatch c4"></div>
-                        <div class="swatch c5"></div>
-                        <div class="swatch c6"></div>
-                      </div>
-                    </div>
-
-                    <div class="guide-card">
-                      <h3>Neutral Colors</h3>
-                      <p>
-                        Neutral shades support readability, contrast, and a
-                        clean app structure.
-                      </p>
-
-                      <div class="palette">
-                        <div class="swatch n1"></div>
-                        <div class="swatch n2"></div>
-                        <div class="swatch n3"></div>
-                        <div class="swatch n4"></div>
-                        <div class="swatch n5"></div>
-                      </div>
-                    </div>
-
-                    <div class="guide-card wide-card">
-                      <h3>Margins, Sizes, and Corners</h3>
-                      <p>
-                        Spacing in Budgie follows multiples of 8 to keep the
-                        layout consistent and organized. Corner radius follows
-                        multiples of 2, creating a 1:4 relationship between
-                        corners and spacing.
-                      </p>
-
-                      <img
-                        loading="lazy"
-                        class="guide-image"
-                        src="images/spacing-guide.png"
-                        alt="Budgie spacing and corner guide"
-                      />
-                    </div>
-
-                    <div class="guide-card wide-card">
-                      <h3>Images</h3>
-                      <p>
-                        The visual elements are inspired by the budgie bird,
-                        which acts as the app’s mascot. The mascot gives the app
-                        a friendly and supportive personality.
-                      </p>
-
-                      <div class="bird-images">
-                        <img
-                          loading="lazy"
-                          src="images/bird-05.png"
-                          alt="Budgie bird illustration 1"
-                        />
-                        <img
-                          loading="lazy"
-                          src="images/bird-06.png"
-                          alt="Budgie bird illustration 2"
-                        />
-                        <img
-                          loading="lazy"
-                          src="images/bird-07.png"
-                          alt="Budgie bird illustration 3"
-                        />
-                      </div>
-
-                      <div class="bird-images">
-                        <img
-                          loading="lazy"
-                          src="images/bird-01.png"
-                          alt="Budgie bird illustration 1"
-                        />
-                        <img
-                          loading="lazy"
-                          src="images/bird-02.png"
-                          alt="Budgie bird illustration 2"
-                        />
-                        <img
-                          loading="lazy"
-                          src="images/bird-03.png"
-                          alt="Budgie bird illustration 3"
-                        />
-                        <img
-                          loading="lazy"
-                          src="images/bird-04.png"
-                          alt="Budgie bird illustration 4"
-                        />
-                      </div>
-                      <div class="bird-images">
-                        <img
-                          loading="lazy"
-                          src="images/bird-08.png"
-                          alt="Budgie bird illustration 1"
-                        />
-                        <img
-                          loading="lazy"
-                          src="images/bird-09.png"
-                          alt="Budgie bird illustration 2"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+            <div class="floating-card tracking-float">
+              <span class="float-icon" aria-hidden="true">↗</span>
+              <div>
+                <strong>Less manual tracking</strong>
+                <p>Bank SMS + iOS Shortcuts</p>
+              </div>
             </div>
-          </details>
-          <details class="detail-section">
-            <summary>Set your first category budget</summary>
-            <div class="detail-content">
-              <section id="budget-guide">
-                <div class="container">
-                  <p class="eyebrow">A simple first step</p>
-                  <h2 class="section-title">Setting a monthly food budget.</h2>
-
-                  <p class="section-lead">
-                    Create a food budget in a few straightforward steps.
-                  </p>
-
-                  <div class="task-layout">
-                    <div class="flow-list">
-                      <div class="flow-item">Dashboard</div>
-                      <div class="flow-item">See All Categories</div>
-                      <div class="flow-item">Add Category</div>
-                      <div class="flow-item">Input Category Budget</div>
-                      <div class="flow-item">Save</div>
-                    </div>
-
-                    <img
-                      loading="lazy"
-                      class="task-image"
-                      src="images/task-flow-illustration.png"
-                      alt="Budgie task flow illustration"
-                    />
-                  </div>
-                </div>
-              </section>
+            <div class="floating-card budget-float">
+              <small>Make room for what matters</small
+              ><strong>Your budget. Your categories.</strong>
+              <div class="budget-arc" aria-hidden="true">
+                <span>Daily clarity</span>
+              </div>
+              <p>See where you stand before you spend.</p>
             </div>
-          </details>
-          <details class="detail-section">
-            <summary>Browse all 23 app screens</summary>
-            <div class="detail-content">
-              <section class="interfaces-section" id="screens">
-                <div class="container">
-                  <p class="eyebrow">Interfaces</p>
-                  <h2 class="section-title">App screens</h2>
-
-                  <div class="interfaces-grid">
-                    <a
-                      class="screen-link"
-                      href="images/interface-00.png"
-                      aria-label="Enlarge Budgie interface 0"
-                      ><img
-                        src="images/interface-00.png"
-                        alt="Budgie interface 0"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-01.png"
-                      aria-label="Enlarge Budgie interface 1"
-                      ><img
-                        src="images/interface-01.png"
-                        alt="Budgie interface 1"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-02.png"
-                      aria-label="Enlarge Budgie interface 2"
-                      ><img
-                        src="images/interface-02.png"
-                        alt="Budgie interface 2"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-03.png"
-                      aria-label="Enlarge Budgie interface 3"
-                      ><img
-                        src="images/interface-03.png"
-                        alt="Budgie interface 3"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-04.png"
-                      aria-label="Enlarge Budgie interface 4"
-                      ><img
-                        src="images/interface-04.png"
-                        alt="Budgie interface 4"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-05.png"
-                      aria-label="Enlarge Budgie interface 5"
-                      ><img
-                        src="images/interface-05.png"
-                        alt="Budgie interface 5"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-06.png"
-                      aria-label="Enlarge Budgie interface 6"
-                      ><img
-                        src="images/interface-06.png"
-                        alt="Budgie interface 6"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-07.png"
-                      aria-label="Enlarge Budgie interface 7"
-                      ><img
-                        src="images/interface-07.png"
-                        alt="Budgie interface 7"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-08.png"
-                      aria-label="Enlarge Budgie interface 8"
-                      ><img
-                        src="images/interface-08.png"
-                        alt="Budgie interface 8"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-09.png"
-                      aria-label="Enlarge Budgie interface 9"
-                      ><img
-                        src="images/interface-09.png"
-                        alt="Budgie interface 9"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-10.png"
-                      aria-label="Enlarge Budgie interface 10"
-                      ><img
-                        src="images/interface-10.png"
-                        alt="Budgie interface 10"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-11.png"
-                      aria-label="Enlarge Budgie interface 11"
-                      ><img
-                        src="images/interface-11.png"
-                        alt="Budgie interface 11"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-12.png"
-                      aria-label="Enlarge Budgie interface 12"
-                      ><img
-                        src="images/interface-12.png"
-                        alt="Budgie interface 12"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-13.png"
-                      aria-label="Enlarge Budgie interface 13"
-                      ><img
-                        src="images/interface-13.png"
-                        alt="Budgie interface 13"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-14.png"
-                      aria-label="Enlarge Budgie interface 14"
-                      ><img
-                        src="images/interface-14.png"
-                        alt="Budgie interface 14"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-15.png"
-                      aria-label="Enlarge Budgie interface 15"
-                      ><img
-                        src="images/interface-15.png"
-                        alt="Budgie interface 15"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-16.png"
-                      aria-label="Enlarge Budgie interface 16"
-                      ><img
-                        src="images/interface-16.png"
-                        alt="Budgie interface 16"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-17.png"
-                      aria-label="Enlarge Budgie interface 17"
-                      ><img
-                        src="images/interface-17.png"
-                        alt="Budgie interface 17"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-18.png"
-                      aria-label="Enlarge Budgie interface 18"
-                      ><img
-                        src="images/interface-18.png"
-                        alt="Budgie interface 18"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-19.png"
-                      aria-label="Enlarge Budgie interface 19"
-                      ><img
-                        src="images/interface-19.png"
-                        alt="Budgie interface 19"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-20.png"
-                      aria-label="Enlarge Budgie interface 20"
-                      ><img
-                        src="images/interface-20.png"
-                        alt="Budgie interface 20"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-21.png"
-                      aria-label="Enlarge Budgie interface 21"
-                      ><img
-                        src="images/interface-21.png"
-                        alt="Budgie interface 21"
-                        loading="lazy"
-                    /></a>
-                    <a
-                      class="screen-link"
-                      href="images/interface-22.png"
-                      aria-label="Enlarge Budgie interface 22"
-                      ><img
-                        src="images/interface-22.png"
-                        alt="Budgie interface 22"
-                        loading="lazy"
-                    /></a>
-                  </div>
-                </div>
-              </section>
+            <div class="floating-card widget-float">
+              <img src="images/bird-05.png" alt="" />
+              <div>
+                <strong>Always within reach</strong>
+                <p>A quick glance at your widget.</p>
+              </div>
             </div>
-          </details>
+          </div>
         </div>
       </section>
-
-      <!-- PAGE SECTION -->
-      <section id="faq" class="tinted">
-        <div class="container faq-layout">
-          <div>
-            <p class="eyebrow">A few things to know</p>
-            <h2>Let’s make<br />things clear.</h2>
+      <section id="news" class="news-section">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Latest from Budgie</h2>
+            <p>Get to know the app and the thinking behind it.</p>
           </div>
-          <div>
-            <details>
-              <summary>What does Budgie help me do?</summary>
-              <p>
-                Budgie helps you organize budgets, track daily transactions, and
-                understand spending through categories, insights, and widgets.
-              </p>
-            </details>
-            <details>
-              <summary>How does automatic tracking work?</summary>
-              <p>
-                Budgie uses iOS Shortcuts and bank SMS notifications. You set up
-                the automation on your iPhone to import transactions, then
-                review and categorize spending in Budgie.
-              </p>
-            </details>
-            <details>
-              <summary>Can I customize my budget?</summary>
-              <p>
-                Yes. Budgie supports customizable budgets across cards and
-                spending categories, so you can organize your spending around
-                your own priorities.
-              </p>
-            </details>
-            <details>
-              <summary>Who is Budgie designed for?</summary>
-              <p>
-                Budgie was created for adults in Saudi Arabia who want more
-                consistency and awareness in their daily spending, with less
-                manual budgeting effort.
-              </p>
-            </details>
+          <div class="news-grid">
+            <article class="news-card">
+              <button
+                class="news-open"
+                data-story="research-story"
+                aria-haspopup="dialog"
+              >
+                <div class="news-image bird-news">
+                  <img src="images/box-bird.png" alt="" loading="lazy" />
+                </div>
+                <div class="news-copy">
+                  <p>Our story</p>
+                  <h3>Why we built Budgie around everyday habits</h3>
+                  <span>Read story <b aria-hidden="true">↗</b></span>
+                </div>
+              </button>
+            </article>
+            <article class="news-card">
+              <button
+                class="news-open"
+                data-story="development-story"
+                aria-haspopup="dialog"
+              >
+                <div class="news-image app-news">
+                  <img src="images/budgie-mockup.png" alt="" loading="lazy" />
+                </div>
+                <div class="news-copy">
+                  <p>Behind the app</p>
+                  <h3>From a spending challenge to an iPhone app</h3>
+                  <span>Read story <b aria-hidden="true">↗</b></span>
+                </div>
+              </button>
+            </article>
+            <article class="news-card">
+              <button
+                class="news-open"
+                data-story="features-story"
+                aria-haspopup="dialog"
+              >
+                <div class="news-image screen-news">
+                  <img src="images/interface-13.png" alt="" loading="lazy" />
+                </div>
+                <div class="news-copy">
+                  <p>Inside Budgie</p>
+                  <h3>A clearer picture of where your money goes</h3>
+                  <span>Read story <b aria-hidden="true">↗</b></span>
+                </div>
+              </button>
+            </article>
+          </div>
+          <div class="news-action">
+            <button
+              class="button"
+              data-story="all-stories"
+              aria-haspopup="dialog"
+            >
+              View all stories <span aria-hidden="true">→</span>
+            </button>
           </div>
         </div>
       </section>
     </main>
     <footer>
       <div class="container">
-        <div class="footer-grid">
-          <div>
-            <a class="brand" href="#home"
-              ><img
-                src="images/budgie-logo.png"
-                alt="Budgie"
-                width="152"
-                height="40"
-            /></a>
-            <p>A little clarity for your everyday spending.</p>
-          </div>
-          <div>
-            <h3>Discover Budgie</h3>
-            <a href="#features">App features</a
-            ><a href="#how-it-works">Getting started</a
-            ><a href="#widgets">Widgets</a><a href="#screens">App screens</a>
-          </div>
-          <div>
-            <h3>Our story</h3>
-            <a href="#about">Why Budgie</a
-            ><a href="#how-we-built-it">How we built it</a
-            ><a href="#research">Our research</a
-            ><a href="#team">Meet the team</a>
-          </div>
-          <div>
-            <h3>Learn more</h3>
-            <a href="#faq">Questions &amp; answers</a
-            ><a href="#design">Our design</a
-            ><a href="#budget-guide">Set a category budget</a>
-          </div>
+        <div class="footer-top">
+          <a class="brand" href="index.html"
+            ><img
+              src="images/budgie-logo.png"
+              alt="Budgie"
+              width="144"
+              height="38"
+          /></a>
+          <p>A little clarity for your everyday spending.</p>
+          <a href="#top">Back to top ↑</a>
         </div>
         <div class="footer-bottom">
-          <span>© <span id="year">2026</span> Budgie. Built by Team 16.</span
-          ><a href="#home">Back to top ↑</a>
+          <span>© <span id="year">2026</span> Budgie. Built by Team 16.</span>
+          <nav aria-label="Legal">
+            <a href="terms.html">Terms &amp; conditions</a
+            ><a href="privacy.html">Privacy policy</a
+            ><a href="cookies.html">Cookies</a>
+          </nav>
         </div>
       </div>
     </footer>
-    <dialog class="image-dialog" aria-label="App screen preview">
-      <button class="dialog-close" aria-label="Close preview">×</button
-      ><img loading="lazy" alt="" />
-      <p></p>
+    <dialog
+      class="story-dialog"
+      id="research-story"
+      aria-labelledby="research-story-title"
+    >
+      <button class="dialog-close" aria-label="Close story">×</button>
+      <p class="eyebrow">Our story</p>
+      <h2 id="research-story-title">
+        Why we built Budgie around everyday habits
+      </h2>
+      <img
+        class="story-image bird-news"
+        src="images/box-bird.png"
+        alt="Budgie our story"
+        loading="lazy"
+      />
+      <p>
+        Managing money is not always difficult because people do not care.
+        Tracking expenses takes effort, spending decisions happen quickly, and
+        overspending can become clear only after the money is gone. Budgie was
+        created for adults in Saudi Arabia who want greater consistency and
+        awareness in their daily spending. Our early research with 114
+        participants helped shape a simple, low-effort budgeting experience.
+      </p>
+    </dialog>
+    <dialog
+      class="story-dialog"
+      id="development-story"
+      aria-labelledby="development-story-title"
+    >
+      <button class="dialog-close" aria-label="Close story">×</button>
+      <p class="eyebrow">Behind the app</p>
+      <h2 id="development-story-title">
+        From a spending challenge to an iPhone app
+      </h2>
+      <img
+        class="story-image app-news"
+        src="images/budgie-mockup.png"
+        alt="Budgie behind the app"
+        loading="lazy"
+      />
+      <p>
+        Team 16 brought research, design, and development together to build
+        Budgie. The interface uses SwiftUI, with iOS Shortcuts supporting bank
+        SMS transaction imports. We focused on clear categories, daily spending
+        insights, and widgets that help make budgeting part of an everyday
+        routine.
+      </p>
+    </dialog>
+    <dialog
+      class="story-dialog"
+      id="features-story"
+      aria-labelledby="features-story-title"
+    >
+      <button class="dialog-close" aria-label="Close story">×</button>
+      <p class="eyebrow">Inside Budgie</p>
+      <h2 id="features-story-title">
+        A clearer picture of where your money goes
+      </h2>
+      <img
+        class="story-image screen-news"
+        src="images/interface-13.png"
+        alt="Budgie inside budgie"
+        loading="lazy"
+      />
+      <p>
+        Budgie combines customizable budgets, spending categories, automatic
+        tracking through iOS Shortcuts, and daily, weekly, and monthly insights.
+        Widgets offer quick budget visibility without opening the app. The goal
+        is to help you understand your spending and approach your next purchase
+        with greater awareness.
+      </p>
+    </dialog>
+    <dialog
+      class="story-dialog"
+      id="all-stories"
+      aria-labelledby="all-stories-title"
+    >
+      <button class="dialog-close" aria-label="Close stories">×</button>
+      <p class="eyebrow">Budgie journal</p>
+      <h2 id="all-stories-title">Our latest stories</h2>
+      <article class="story-summary">
+        <p class="eyebrow">Our story</p>
+        <h3>Why we built Budgie around everyday habits</h3>
+        <p>
+          Managing money is not always difficult because people do not care.
+          Tracking expenses takes effort, spending decisions happen quickly, and
+          overspending can become clear only after the money is gone. Budgie was
+          created for adults in Saudi Arabia who want greater consistency and
+          awareness in their daily spending. Our early research with 114
+          participants helped shape a simple, low-effort budgeting experience.
+        </p>
+      </article>
+      <article class="story-summary">
+        <p class="eyebrow">Behind the app</p>
+        <h3>From a spending challenge to an iPhone app</h3>
+        <p>
+          Team 16 brought research, design, and development together to build
+          Budgie. The interface uses SwiftUI, with iOS Shortcuts supporting bank
+          SMS transaction imports. We focused on clear categories, daily
+          spending insights, and widgets that help make budgeting part of an
+          everyday routine.
+        </p>
+      </article>
+      <article class="story-summary">
+        <p class="eyebrow">Inside Budgie</p>
+        <h3>A clearer picture of where your money goes</h3>
+        <p>
+          Budgie combines customizable budgets, spending categories, automatic
+          tracking through iOS Shortcuts, and daily, weekly, and monthly
+          insights. Widgets offer quick budget visibility without opening the
+          app. The goal is to help you understand your spending and approach
+          your next purchase with greater awareness.
+        </p>
+      </article>
     </dialog>
   </body>
 </html>
